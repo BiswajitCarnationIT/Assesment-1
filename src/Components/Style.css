@@ -14,8 +14,33 @@
 
 .child{
     display: inline-block;
+    color:white;
 }
 
 .TopManue{
     float: right;
+}
+
+.ContainerLogIn{
+    
+    border: 50px red;
+    margin: auto;
+    background-color: #053a26;
+    color: white;
+    width: 100%;
+    padding: 12px 30px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.country{
+ 
+    margin: auto;
+    background-color: transparent;
+    color: white;
+    width: 100%;
+    padding: 12px 5px;
+    border: 0px solid #ccc;
+
+    box-sizing: border-box;
 }

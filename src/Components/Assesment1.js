@@ -18,13 +18,13 @@ class Assesment1 extends Component {
                     <div className = "TopManue">
                         <div className ="child">contact us |   </div>
                         <div className ="child">
-                        <select name ="country" id="counrty">
+                        <select className ="country" name ="country" id="counrty">
                             <option value = "country">Change country</option>
                         </select>
                         </div>
                         <div className ="child">
-                            <div className = "ContainerLogIn">
-                                <button type="button">login</button>
+                            <div >
+                                <button type="button" className = "ContainerLogIn">Log in</button>
                             </div>
                         </div>
                     </div>
