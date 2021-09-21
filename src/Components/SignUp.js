@@ -47,7 +47,7 @@ class SignUp extends Component {
                   No
                 </botton>
               </div>
-             
+
               <h3>Complete These fields to activate your benefit</h3>
               <input
                 type="text"
@@ -55,32 +55,16 @@ class SignUp extends Component {
                 placeholder="Employee ID"
               ></input>
               <br></br>
-              <input
-                type="text"
-                id="fname"
-                placeholder="First name"
-              ></input>
+              <input type="text" id="fname" placeholder="First name"></input>
               <br></br>
-              <input
-                type="text"
-                id="lname"
-                placeholder="Last Name"
-              ></input>
+              <input type="text" id="lname" placeholder="Last Name"></input>
               <br></br>
               <select name="role" id="role">
                 <option value="role">Role</option>
               </select>
-              <input
-                type="text"
-                id="address"
-                placeholder="Address"
-              ></input>
+              <input type="text" id="address" placeholder="Address"></input>
               <br></br>
-              <input
-                type="text"
-                id="zip"
-                placeholder="Zip"
-              ></input>
+              <input type="text" id="zip" placeholder="Zip"></input>
               <br></br>
               <input
                 type="text"

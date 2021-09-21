@@ -8,8 +8,8 @@ import SignUp from './Components/SignUp';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Assesment1 /> */}
-    <SignUp/>
+    <Assesment1 />
+    {/* <SignUp/> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
