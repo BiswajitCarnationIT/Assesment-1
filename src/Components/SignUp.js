@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import "./Style.css";
+import "./Style2.css";
 import logo from "./logo.png";
 
-class Assesment1 extends Component {
+class SignUp extends Component {
   static propTypes = {};
 
   render() {
@@ -47,11 +47,7 @@ class Assesment1 extends Component {
                   No
                 </botton>
               </div>
-              <h3>Ente your existing Care.com login information</h3>
-
-              <input type="text" id="email" placeholder="Email"></input>
-              <br></br>
-              <input type="text" id="password" placeholder="Password"></input>
+             
               <h3>Complete These fields to activate your benefit</h3>
               <input
                 type="text"
@@ -59,9 +55,45 @@ class Assesment1 extends Component {
                 placeholder="Employee ID"
               ></input>
               <br></br>
+              <input
+                type="text"
+                id="fname"
+                placeholder="First name"
+              ></input>
+              <br></br>
+              <input
+                type="text"
+                id="lname"
+                placeholder="Last Name"
+              ></input>
+              <br></br>
               <select name="role" id="role">
                 <option value="role">Role</option>
               </select>
+              <input
+                type="text"
+                id="address"
+                placeholder="Address"
+              ></input>
+              <br></br>
+              <input
+                type="text"
+                id="zip"
+                placeholder="Zip"
+              ></input>
+              <br></br>
+              <input
+                type="text"
+                id="employeeID"
+                placeholder="Employee ID"
+              ></input>
+              <br></br>
+              <input
+                type="text"
+                id="employeeID"
+                placeholder="Employee ID"
+              ></input>
+              <br></br>
               <div className="dateOfBirth">
                 <select name="month" id="month">
                   <option value="month">Birth month</option>
@@ -84,4 +116,4 @@ class Assesment1 extends Component {
   }
 }
 
-export default Assesment1;
+export default SignUp;
