@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import  "./Style.css";
+import "./Style.css";
 import logo from "./logo.png";
 
 class Assesment1 extends Component {
@@ -28,29 +28,56 @@ class Assesment1 extends Component {
               </div>
             </div>
           </div>
-          <div className="row">
-            <div className="column">
-              <div className="enrollContainer">
-                <h1>Enroll</h1>
-                <h3>The right care could be right around the corner</h3>
-              </div>
-            </div>
-            <div className="column">
-              <div className="AreYouNew">Are you new to Care.com</div>
+        </div>
+        <div className="row">
+          <div className="column">
+            <div className="enrollContainer">
+              <h1>Enroll</h1>
+              <h3>The right care could be right around the corner</h3>
             </div>
           </div>
-          {/* <div class="row">
-  <div class="column" style={{backgroundColor : '#aaa'}}>
-    <h2>Column 1</h2>
-    <p>Some text..</p>
-  </div>
-  <div class="column" style={{backgroundColor : '#bbbb'}}>
-    <h2>Column 2</h2>
-    <p>Some text..</p>
-  </div>
-</div> */}
+          <div className="column">
+            <div className="AreYouNew">
+              <h3>Are you new to Care.com?</h3>
+              <div className="bottonPrent">
+                <botton type="botton" className="botton1">
+                  Yes
+                </botton>
+                <botton type="botton" className="botton1">
+                  No
+                </botton>
+              </div>
+              <h3>Ente your existing Care.com login information</h3>
+
+              <input type="text" id="email" placeholder="Email"></input>
+              <br></br>
+              <input type="text" id="password" placeholder="Password"></input>
+              <h3>Complete These fields to activate your benefit</h3>
+              <input
+                type="text"
+                id="employeeID"
+                placeholder="Employee ID"
+              ></input>
+              <br></br>
+              <select name="role" id="role">
+                <option value="role">Role</option>
+              </select>
+              <div className="dateOfBirth">
+                <select name="month" id="month">
+                  <option value="month">Birth month</option>
+                </select>
+                <select name="day" id="day">
+                  <option value="day">Day</option>
+                </select>
+                <select name="year" id="year">
+                  <option value="year">Year</option>
+                </select>
+              </div>
+              <button type="button" id="submit">Submit</button>
+            </div>
+          </div>
         </div>
-        hi
+        
       </div>
     );
   }
