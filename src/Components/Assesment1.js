@@ -120,6 +120,24 @@ class Assesment1 extends Component {
       errors["address"] = "*Please enter your address.";
     }
 
+    if(!fields["zip"]){
+      formIsValid = false;
+      errors["zip"] = "*Please enter your zip code";
+    }
+
+    if(typeof fields["zip"] !== "undefined"){
+      if (
+        !fields["zip"].match(
+          /^[1-9]{1}[0-9]{5}$/
+        )
+      ) {
+        formIsValid = false;
+        errors["zip"] = "*Please enter valid 6 digit zip code";
+        
+      }
+    }
+
+
     if (formIsValid) {
       errors["password"] = "";
       errors["username"] = "";

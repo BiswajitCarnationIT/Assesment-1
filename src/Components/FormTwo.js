@@ -15,7 +15,7 @@ const FormTwo = ({ state, handelChange }) => {
         onChange={handelChange}
       ></input>
       <div className="errorMsg">{state.errors.employeeID}</div>
-      
+
       <input
         type="text"
         id="fname"
@@ -25,7 +25,7 @@ const FormTwo = ({ state, handelChange }) => {
         onChange={handelChange}
       ></input>
       <div className="errorMsg">{state.errors.fname}</div>
-      
+
       <input
         type="text"
         id="lname"
@@ -35,7 +35,7 @@ const FormTwo = ({ state, handelChange }) => {
         onChange={handelChange}
       ></input>
       <div className="errorMsg">{state.errors.lname}</div>
-      
+
       <select name="role" id="role">
         <option value="role">Role</option>
       </select>
@@ -48,12 +48,35 @@ const FormTwo = ({ state, handelChange }) => {
         onChange={handelChange}
       ></input>
       <div className="errorMsg">{state.errors.address}</div>
-      <input type="text" id="zip" placeholder="Zip"></input>
+      <input
+        type="text"
+        id="zip"
+        name="zip"
+        placeholder="Zip"
+        value={state.zip}
+        onChange={handelChange}
+      ></input>
+      <div className="errorMsg">{state.errors.zip}</div>
+
+      <input
+        type="text"
+        id="emailid"
+        name="emailid"
+        placeholder="Email"
+        value={state.emailid}
+        onChange={handelChange}
+      ></input>
       <br></br>
-      <input type="text" id="employeeID" placeholder="Employee ID"></input>
-      <br></br>
-      <input type="text" id="employeeID" placeholder="Employee ID"></input>
-      <br></br>
+      <div className="errorMsg">{state.errors.emailid}</div>
+      <input
+        type="text"
+        id="password"
+        name="password"
+        placeholder="Password"
+        value={state.fields.password}
+        onChange={handelChange}
+      ></input>
+      <div className="errorMsg">{state.errors.password}</div>
       <div className="dateOfBirth">
         <select name="month" id="month">
           <option value="month">Birth month</option>
