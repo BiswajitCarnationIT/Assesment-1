@@ -36,9 +36,12 @@ const FormTwo = ({ state, handelChange }) => {
       ></input>
       <div className="errorMsg">{state.errors.lname}</div>
 
-      <select name="role" id="role">
-        <option value="role">Role</option>
+      <select name="role" id="role" value={state.role} onChange={handelChange}>
+        <option value="ReactJS">ReactJS</option>
+        <option value="NodeJS">NodeJS</option>
+        <option value="AWS">AWS</option>
       </select>
+      <div className="errorMsg">{state.errors.role}</div>
       <input
         type="text"
         id="address"

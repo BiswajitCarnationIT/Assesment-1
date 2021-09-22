@@ -1,6 +1,6 @@
 .BackGround {
     background-image: url(bg-image.jpg);
-    height: 753px;
+    height: 953px;
     width: 100%;
     background-size: cover;
   }
@@ -154,3 +154,6 @@
     border-radius: 3px;
   }
   
+  .select-selected{
+    background-color: red;
+  }
