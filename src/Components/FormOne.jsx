@@ -1,6 +1,7 @@
 import React from "react";
 
-const FormOne = ({state,handelChange}) => {
+const FormOne = ({ state, handelChange }) => {
+  ///
 
   return (
     <div>
@@ -28,7 +29,15 @@ const FormOne = ({state,handelChange}) => {
       <div className="errorMsg">{state.errors.password}</div>
 
       <h3>Complete These fields to activate your benefit</h3>
-      <input type="text" id="employeeID" placeholder="Employee ID"></input>
+      <input
+        type="text"
+        id="employeeID"
+        name="employeeID"
+        placeholder="Employee ID"
+        value={state.fields.employeeID}
+        onChange={handelChange}
+      ></input>
+      <div className="errorMsg">{state.errors.employeeID}</div>
       <br></br>
       <select name="role" id="role">
         <option value="role">Role</option>

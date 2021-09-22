@@ -4,6 +4,7 @@ import "./Style.css";
 import logo from "./logo.png";
 import SignUp from "./SignUp";
 import FormOne from "./FormOne";
+import FormTwo from "./FormTwo";
 
 class Assesment1 extends Component {
   constructor(props) {
@@ -59,7 +60,64 @@ class Assesment1 extends Component {
       ) {
         formIsValid = false;
         errors["password"] = "*Please enter secure and strong password.";
+        
       }
+    }
+
+    if(!fields["employeeID"]){
+      formIsValid = false;
+      errors["employeeID"] = "*Please enter your employeeID.";
+    }
+
+    if(typeof fields["employeeID"] !== "undefined"){
+      if (
+        !fields["employeeID"].match(
+          /^[a-zA-Z ]*$/
+        )
+      ) {
+        formIsValid = false;
+        errors["employeeID"] = "*Please enter valid employeeID.";
+        
+      }
+    }
+
+    if(!fields["fname"]){
+      formIsValid = false;
+      errors["fname"] = "*Please enter your first name.";
+    }
+
+    if(typeof fields["fname"] !== "undefined"){
+      if (
+        !fields["fname"].match(
+          /^[a-zA-Z ]*$/
+        )
+      ) {
+        formIsValid = false;
+        errors["fname"] = "*Please enter valid first name";
+        
+      }
+    }
+
+    if(!fields["lname"]){
+      formIsValid = false;
+      errors["lname"] = "*Please enter your last name.";
+    }
+
+    if(typeof fields["lname"] !== "undefined"){
+      if (
+        !fields["lname"].match(
+          /^[a-zA-Z ]*$/
+        )
+      ) {
+        formIsValid = false;
+        errors["lname"] = "*Please enter valid last name";
+        
+      }
+    }
+
+    if(!fields["address"]){
+      formIsValid = false;
+      errors["address"] = "*Please enter your address.";
     }
 
     if (formIsValid) {
@@ -137,15 +195,29 @@ class Assesment1 extends Component {
                 >
                   Yes
                 </botton>
-                <botton type="botton" className="botton1">
+                <botton
+                  type="botton"
+                  className="botton1"
+                  onClick={() => this.handleFormChange()}
+                >
                   No
                 </botton>
               </div>
 
               <>
-                {this.state.currentForm === "form1" && <FormOne  state = {this.state}  handelChange = {this.handelChange} />}
+                {this.state.currentForm === "form1" && (
+                  <FormOne
+                    state={this.state}
+                    handelChange={this.handelChange}
+                  />
+                )}
 
-                {/* {this.state.currentForm === "form2" && <FormTwo />} */}
+                {this.state.currentForm === "form2" && (
+                  <FormTwo
+                    state={this.state}
+                    handelChange={this.handelChange}
+                  />
+                )}
               </>
             </div>
           </div>
