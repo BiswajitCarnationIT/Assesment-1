@@ -15,7 +15,6 @@ class Assesment1 extends Component {
       errors: {},
       formInvalid: true,
       currentForm: "form1",
-      isMonthNotEntered: true
     };
     this.handelChange = this.handelChange.bind(this);
     this.handleFormChange = this.handleFormChange.bind(this);
@@ -34,14 +33,20 @@ class Assesment1 extends Component {
       if (this.validateForm()) {
         alert(
           "Form submitted \n" +
-            "email :" +
+            "email : " +
             this.state.fields["emailid"] +
-            "\nPassword:" +
+            "\nPassword: " +
             this.state.fields["password"] +
-            "\nemployeeID:" +
+            "\nemployeeID: " +
             this.state.fields["employeeID"] +
-            "\nrole:" +
-            this.state.fields["role"]
+            "\nrole: " +
+            this.state.fields["role"] +
+            "\nDoB: " +
+            this.state.fields["day"] +
+            "/" +
+            this.state.fields["month"] +
+            "/" +
+            this.state.fields["year"]
         );
       }
     }
@@ -49,25 +54,29 @@ class Assesment1 extends Component {
       if (this.validateSignUpForm()) {
         alert(
           "Form submitted \n" +
-            "\nfirat name:" +
+            "\nfirat name: " +
             this.state.fields["fname"] +
-            "\nlast name:" +
+            "\nlast name: " +
             this.state.fields["lname"] +
-            "\naddress:" +
+            "\naddress: " +
             this.state.fields["address"] +
-            "\nemail :" +
+            "\nemail : " +
             this.state.fields["emailid"] +
-            "\nPassword:" +
+            "\nPassword :" +
             this.state.fields["password"] +
-            "\nemployeeID:" +
+            "\nemployeeID :" +
             this.state.fields["employeeID"] +
-            "\nrole:" +
-            this.state.fields["role"]
+            "\nrole: " +
+            this.state.fields["role"] +
+            "\nDoB: " +
+            this.state.fields["day"] +
+            "/" +
+            this.state.fields["month"] +
+            "/" +
+            this.state.fields["year"]
         );
       }
     }
-
-    //console.log(this.state);
   }
   validateForm() {
     let fields = this.state.fields;
@@ -79,7 +88,6 @@ class Assesment1 extends Component {
     }
 
     if (typeof fields["emailid"] !== "undefined") {
-      //regular expression for email validation
       var pattern = new RegExp(
         /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
       );
@@ -128,8 +136,7 @@ class Assesment1 extends Component {
         formIsValid = false;
         errors["month"] = " *month:1-12";
       }
-      
-      
+
       if (!fields["day"]) {
         formIsValid = false;
         errors["day"] = " *enter day";
@@ -152,7 +159,6 @@ class Assesment1 extends Component {
           errors["day"] = " * day:1-31";
         }
       }
-
     }
     if (!fields["year"]) {
       formIsValid = false;
@@ -164,7 +170,6 @@ class Assesment1 extends Component {
       }
     }
 
-
     if (formIsValid) {
       errors["password"] = "";
       errors["username"] = "";
@@ -173,9 +178,7 @@ class Assesment1 extends Component {
         formInvalid: false,
         errors: errors,
       });
-    }
-    //console.log( errors)
-    else {
+    } else {
       this.setState({
         ...this.state,
         errors: errors,
@@ -194,7 +197,6 @@ class Assesment1 extends Component {
     }
 
     if (typeof fields["emailid"] !== "undefined") {
-      //regular expression for email validation
       var pattern = new RegExp(
         /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
       );
@@ -285,7 +287,7 @@ class Assesment1 extends Component {
         formIsValid = false;
         errors["month"] = " *month:1-12";
       }
-      
+
       if (!fields["day"]) {
         formIsValid = false;
         errors["day"] = " *enter day";
@@ -308,7 +310,6 @@ class Assesment1 extends Component {
           errors["day"] = " * day:1-31";
         }
       }
-     
     }
     if (!fields["year"]) {
       formIsValid = false;
@@ -328,9 +329,7 @@ class Assesment1 extends Component {
         formInvalid: false,
         errors: errors,
       });
-    }
-    //console.log( errors)
-    else {
+    } else {
       this.setState({
         ...this.state,
         errors: errors,
@@ -342,14 +341,12 @@ class Assesment1 extends Component {
   handleFormChange(e) {
     if (this.state.currentForm === "form1") {
       this.setState({
-        // ...this.state,
         currentForm: "form2",
         fields: {},
         errors: {},
       });
     } else {
       this.setState({
-        // ...this.state,
         currentForm: "form1",
         fields: {},
         errors: {},
@@ -390,11 +387,7 @@ class Assesment1 extends Component {
               </div>
             </div>
             <div className="column">
-              <form
-              // method="post"
-              // name="userRegistrationForm"
-              // onSubmit={this.handelSubmit}
-              >
+              <form>
                 <div className="AreYouNew">
                   <h3>Are you new to Care.com?</h3>
                   <div className="bottonPrent">
@@ -435,12 +428,6 @@ class Assesment1 extends Component {
                       />
                     )}
                   </>
-                  {/* <button type="button" id="submit" onClick={() =>this.handelSubmit()}>
-                  Submit
-                </button> */}
-                  {/* <button type="button" id="submit">
-                    Submit
-                  </button> */}
                 </div>
               </form>
             </div>

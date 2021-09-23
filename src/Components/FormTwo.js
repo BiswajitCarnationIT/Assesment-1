@@ -1,6 +1,4 @@
 import React from "react";
-import MonthPicker from "./MonthPicker";
-import PrivacyText from "./PrivacyText";
 import "./Style.css";
 
 const FormTwo = ({ state, handelChange, handelSubmit }) => {
@@ -82,7 +80,7 @@ const FormTwo = ({ state, handelChange, handelSubmit }) => {
       ></input>
       <div className="errorMsg">{state.errors.password}</div>
       <div className="dateOfBirth">
-      <input
+        <input
           type="number"
           id="month"
           name="month"
@@ -113,7 +111,7 @@ const FormTwo = ({ state, handelChange, handelSubmit }) => {
           onChange={handelChange}
         />
       </div>
-      <div className="errorMsg"> 
+      <div className="errorMsg">
         {state.errors.day}
         {state.errors.month}
         {state.errors.year}

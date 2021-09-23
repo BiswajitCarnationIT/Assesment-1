@@ -1,6 +1,5 @@
 import React from "react";
-import MonthPicker from "./MonthPicker";
-import PrivacyText from "./PrivacyText";
+
 import "./Style.css";
 
 const FormOne = ({ state, handelChange, handelSubmit }) => {
@@ -47,11 +46,6 @@ const FormOne = ({ state, handelChange, handelSubmit }) => {
       </select>
       <div className="errorMsg">{state.errors.role}</div>
       <div className="dateOfBirth">
-        {/* <select name="month" id="month">
-          <option value="">Birth month</option>
-
-          <MonthPicker />
-        </select> */}
         <input
           type="number"
           id="month"
@@ -83,7 +77,7 @@ const FormOne = ({ state, handelChange, handelSubmit }) => {
           onChange={handelChange}
         />
       </div>
-      <div className="errorMsg"> 
+      <div className="errorMsg">
         {state.errors.day}
         {state.errors.month}
         {state.errors.year}
