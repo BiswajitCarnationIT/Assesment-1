@@ -1,6 +1,6 @@
 .BackGround {
   background-image: url(bg-image.jpg);
-  height: 953px;
+  height: 1000px;
   width: 100%;
   background-size: cover;
 }
@@ -193,13 +193,7 @@ footer{
   text-align: left;
   color: white;
 }
-
-/* .row {
-  display: flex;
+.active{
+  background-color: white;
 }
 
-.column {
-  flex: 50%;
-  padding: 10px;
-  height: 300px; 
-} */

@@ -18,6 +18,8 @@ class Assesment1 extends Component {
       currentForm: "form1",
     };
     this.handelChange = this.handelChange.bind(this);
+    this.handleFormChange = this.handleFormChange.bind(this)
+    this.handelSubmit = this.handelSubmit.bind(this)
   }
   handelChange(e) {
     let fields = this.state.fields;
@@ -26,12 +28,114 @@ class Assesment1 extends Component {
     this.setState({
       fields,
     });
-    this.validateForm();
+    
+    // this.validateForm();
+    // if(this.state.currentForm === "form2"){
+    //   console.log("form 2")
+    // }
+    
+  }
+  handelSubmit() {
+    // alert(
+    //   "Form submitted \n" +
+    //     "email :" +
+    //     this.state.fields["emailid"] +
+    //     "\nPassword:" +
+    //     this.state.fields["password"]
+    // );
+    // if(this.validateForm()){
+    //   alert("submitted")
+    // }
+    
+    if(this.state.currentForm ==="form1"){
+      this.validateForm();
+      alert("submitted")
+    }
+    if(this.state.currentForm ==="form2"){
+      this.validateSignUpForm();
+      alert("form1")
+    }
+    
+    //console.log(this.state);
   }
   validateForm() {
     let fields = this.state.fields;
     let errors = {};
     let formIsValid = true;
+    if (!fields["emailid"]) {
+      formIsValid = false;
+      errors["emailid"] = "*Please enter your email-ID.";
+    }
+
+    if (typeof fields["emailid"] !== "undefined") {
+      //regular expression for email validation
+      var pattern = new RegExp(
+        /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
+      );
+      if (!pattern.test(fields["emailid"])) {
+        formIsValid = false;
+        errors["emailid"] = "*Please enter valid email-ID.";
+      }
+    }
+
+    if (!fields["password"]) {
+      formIsValid = false;
+      errors["password"] = "*Please enter your password.";
+    }
+
+    if (typeof fields["password"] !== "undefined") {
+      if (
+        !fields["password"].match(
+          /^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).*$/
+        )
+      ) {
+        formIsValid = false;
+        errors["password"] = "*Please enter secure and strong password.";
+      }
+    }
+
+    if (!fields["employeeID"]) {
+      formIsValid = false;
+      errors["employeeID"] = "*Please enter your employeeID.";
+    }
+
+    if (typeof fields["employeeID"] !== "undefined") {
+      if (!fields["employeeID"].match(/^[a-zA-Z ]*$/)) {
+        formIsValid = false;
+        errors["employeeID"] = "*Please enter valid employeeID.";
+      }
+    }
+
+    
+
+    if (!fields["role"]) {
+      formIsValid = false;
+      errors["role"] = "*Please select your role";
+    }
+
+    if (formIsValid) {
+      errors["password"] = "";
+      errors["username"] = "";
+      this.setState({
+        ...this.state,
+        formInvalid: false,
+        errors: errors,
+      });
+    }
+    //console.log( errors)
+    else {
+      this.setState({
+        ...this.state,
+        errors: errors,
+      });
+    }
+    return formIsValid;
+  }
+  validateSignUpForm(){
+    let fields = this.state.fields;
+    let errors = {};
+    let formIsValid = true;
+
     if (!fields["emailid"]) {
       formIsValid = false;
       errors["emailid"] = "*Please enter your email-ID.";
@@ -116,44 +220,26 @@ class Assesment1 extends Component {
         errors["zip"] = "*Please enter valid 6 digit zip code";
       }
     }
-
-    if (!fields["role"]) {
-      formIsValid = false;
-      errors["role"] = "*Please select your role";
-    }
-
-    if (formIsValid) {
-      errors["password"] = "";
-      errors["username"] = "";
-      this.setState({
-        ...this.state,
-        formInvalid: false,
-        errors: errors,
-      });
-    }
-    //console.log( errors)
-    else {
-      this.setState({
-        ...this.state,
-        errors: errors,
-      });
-    }
-    return formIsValid;
   }
 
-  handleFormChange() {
+  handleFormChange(e) {
     if (this.state.currentForm === "form1") {
       this.setState({
-        ...this.state,
+        // ...this.state,
         currentForm: "form2",
+        fields: {},
+        errors: {},
       });
     } else {
       this.setState({
-        ...this.state,
+        // ...this.state,
         currentForm: "form1",
+        fields: {},
+        errors: {},
       });
     }
   }
+  
 
   render() {
     console.log(this.state);
@@ -188,41 +274,55 @@ class Assesment1 extends Component {
               </div>
             </div>
             <div className="column">
-              <div className="AreYouNew">
-                <h3>Are you new to Care.com?</h3>
-                <div className="bottonPrent">
-                  <botton
-                    type="botton"
-                    className="botton1"
-                    onClick={() => this.handleFormChange()}
-                  >
-                    Yes
-                  </botton>
-                  <botton
-                    type="botton"
-                    className="botton1"
-                    onClick={() => this.handleFormChange()}
-                  >
-                    No
-                  </botton>
+              <form
+                // method="post"
+                // name="userRegistrationForm"
+                // onSubmit={this.handelSubmit}
+              >
+                <div className="AreYouNew">
+                  <h3>Are you new to Care.com?</h3>
+                  <div className="bottonPrent">
+                    <botton
+                      type="button"
+                      className="botton1 ${this.state.currentForm ==='form1' && 'active'}"
+                      onClick={() => this.handleFormChange()}
+                    >
+                      Yes
+                    </botton>
+                    <botton
+                      type="button"
+                      className="botton1"
+                      onClick={() => this.handleFormChange()}
+                    >
+                      No
+                    </botton>
+                  </div>
+
+                  <>
+                    {this.state.currentForm === "form1" && (
+                      <FormOne
+                        state={this.state}
+                        handelChange={this.handelChange}
+                        handelSubmit={this.handelSubmit}
+                      />
+                    )}
+
+                    {this.state.currentForm === "form2" && (
+                      <FormTwo
+                        state={this.state}
+                        handelChange={this.handelChange}
+                        handelSubmit={this.handelSubmit}
+                      />
+                    )}
+                  </>
+                  {/* <button type="button" id="submit" onClick={() =>this.handelSubmit()}>
+                  Submit
+                </button> */}
+                  {/* <button type="button" id="submit">
+                    Submit
+                  </button> */}
                 </div>
-
-                <>
-                  {this.state.currentForm === "form1" && (
-                    <FormOne
-                      state={this.state}
-                      handelChange={this.handelChange}
-                    />
-                  )}
-
-                  {this.state.currentForm === "form2" && (
-                    <FormTwo
-                      state={this.state}
-                      handelChange={this.handelChange}
-                    />
-                  )}
-                </>
-              </div>
+              </form>
             </div>
           </div>
         </div>
@@ -271,9 +371,7 @@ class Assesment1 extends Component {
               </p>
             </div>
             <div className="temp">
-              <p>
-              © 2007-2015 Care.com , Inc. All rights reserved .
-              </p>
+              <p>© 2007-2015 Care.com , Inc. All rights reserved .</p>
             </div>
           </div>
         </footer>

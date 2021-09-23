@@ -1,6 +1,6 @@
 import React from "react";
 
-const FormTwo = ({ state, handelChange }) => {
+const FormTwo = ({ state, handelChange,handelSubmit }) => {
   ///
 
   return (
@@ -91,7 +91,15 @@ const FormTwo = ({ state, handelChange }) => {
           <option value="year">Year</option>
         </select>
       </div>
-      <button type="button" id="submit">
+      
+      {/* <button type="button" id="submit">
+        Submit
+      </button> */}
+      <button
+        type="button"
+        id="submit"
+        onClick={() => handelSubmit()}
+      >
         Submit
       </button>
     </div>

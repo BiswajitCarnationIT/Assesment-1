@@ -1,6 +1,6 @@
 .BackGround {
     background-image: url(bg-image.jpg);
-    height: 953px;
+    height: 1000px;
     width: 100%;
     background-size: cover;
   }
@@ -156,4 +156,7 @@
   
   .select-selected{
     background-color: red;
+  }
+  .active{
+    background-color: white;
   }

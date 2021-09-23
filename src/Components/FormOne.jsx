@@ -1,7 +1,7 @@
 import React from "react";
 import "./Style2.css";
 
-const FormOne = ({ state, handelChange }) => {
+const FormOne = ({ state, handelChange,handelSubmit }) => {
   ///
 
   return (
@@ -39,7 +39,7 @@ const FormOne = ({ state, handelChange }) => {
         onChange={handelChange}
       ></input>
       <div className="errorMsg">{state.errors.employeeID}</div>
-      
+
       <select name="role" id="role" value={state.role} onChange={handelChange}>
         <option value="ReactJS">ReactJS</option>
         <option value="NodeJS">NodeJS</option>
@@ -57,9 +57,15 @@ const FormOne = ({ state, handelChange }) => {
           <option value="year">Year</option>
         </select>
       </div>
-      
 
-      <button type="button" id="submit">
+      {/* <button type="button" id="submit" onClick={() => handelSubmit()}>
+        Submit
+      </button> */}
+      <button
+        type="button"
+        id="submit"
+        onClick={() => handelSubmit()}
+      >
         Submit
       </button>
     </div>
