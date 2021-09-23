@@ -1,8 +1,8 @@
 import React from "react";
+import PrivacyText from "./PrivacyText";
+import "./Style.css";
 
-const FormTwo = ({ state, handelChange,handelSubmit }) => {
-  ///
-
+const FormTwo = ({ state, handelChange, handelSubmit }) => {
   return (
     <div>
       <h3>Complete These fields to activate your benefit</h3>
@@ -91,15 +91,8 @@ const FormTwo = ({ state, handelChange,handelSubmit }) => {
           <option value="year">Year</option>
         </select>
       </div>
-      
-      {/* <button type="button" id="submit">
-        Submit
-      </button> */}
-      <button
-        type="button"
-        id="submit"
-        onClick={() => handelSubmit()}
-      >
+      <PrivacyText/>
+      <button type="button" id="submit" onClick={() => handelSubmit()}>
         Submit
       </button>
     </div>

@@ -1,9 +1,8 @@
 import React from "react";
-import "./Style2.css";
+import PrivacyText from "./PrivacyText";
+import "./Style.css";
 
-const FormOne = ({ state, handelChange,handelSubmit }) => {
-  ///
-
+const FormOne = ({ state, handelChange, handelSubmit }) => {
   return (
     <div>
       <h3>Ente your existing Care.com login information</h3>
@@ -49,23 +48,23 @@ const FormOne = ({ state, handelChange,handelSubmit }) => {
       <div className="dateOfBirth">
         <select name="month" id="month">
           <option value="month">Birth month</option>
+          <option value="1">1</option>
         </select>
         <select name="day" id="day">
           <option value="day">Day</option>
+          <option value="1">1</option>
         </select>
         <select name="year" id="year">
           <option value="year">Year</option>
+          <option value="1990">1990</option>
         </select>
       </div>
 
       {/* <button type="button" id="submit" onClick={() => handelSubmit()}>
         Submit
       </button> */}
-      <button
-        type="button"
-        id="submit"
-        onClick={() => handelSubmit()}
-      >
+      <PrivacyText/>
+      <button type="button" id="submit" onClick={() => handelSubmit()}>
         Submit
       </button>
     </div>

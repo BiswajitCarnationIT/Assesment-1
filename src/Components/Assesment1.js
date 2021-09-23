@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import "./Style.css";
 import logo from "./logo.png";
 import footerLogo from "./footer_logo.png";
-import SignUp from "./SignUp";
 import FormOne from "./FormOne";
 import FormTwo from "./FormTwo";
 
@@ -18,8 +17,8 @@ class Assesment1 extends Component {
       currentForm: "form1",
     };
     this.handelChange = this.handelChange.bind(this);
-    this.handleFormChange = this.handleFormChange.bind(this)
-    this.handelSubmit = this.handelSubmit.bind(this)
+    this.handleFormChange = this.handleFormChange.bind(this);
+    this.handelSubmit = this.handelSubmit.bind(this);
   }
   handelChange(e) {
     let fields = this.state.fields;
@@ -28,34 +27,45 @@ class Assesment1 extends Component {
     this.setState({
       fields,
     });
-    
-    // this.validateForm();
-    // if(this.state.currentForm === "form2"){
-    //   console.log("form 2")
-    // }
-    
   }
   handelSubmit() {
-    // alert(
-    //   "Form submitted \n" +
-    //     "email :" +
-    //     this.state.fields["emailid"] +
-    //     "\nPassword:" +
-    //     this.state.fields["password"]
-    // );
-    // if(this.validateForm()){
-    //   alert("submitted")
-    // }
-    
-    if(this.state.currentForm ==="form1"){
-      this.validateForm();
-      alert("submitted")
+    if (this.state.currentForm === "form1") {
+      if (this.validateForm()) {
+        alert(
+          "Form submitted \n" +
+            "email :" +
+            this.state.fields["emailid"] +
+            "\nPassword:" +
+            this.state.fields["password"] +
+            "\nemployeeID:" +
+            this.state.fields["employeeID"] +
+            "\nrole:" +
+            this.state.fields["role"]
+        );
+      }
     }
-    if(this.state.currentForm ==="form2"){
-      this.validateSignUpForm();
-      alert("form1")
+    if (this.state.currentForm === "form2") {
+      if (this.validateSignUpForm()) {
+        alert(
+          "Form submitted \n" +
+            "\nfirat name:" +
+            this.state.fields["fname"] +
+            "\nlast name:" +
+            this.state.fields["lname"] +
+            "\naddress:" +
+            this.state.fields["address"] +
+            "\nemail :" +
+            this.state.fields["emailid"] +
+            "\nPassword:" +
+            this.state.fields["password"] +
+            "\nemployeeID:" +
+            this.state.fields["employeeID"] +
+            "\nrole:" +
+            this.state.fields["role"]
+        );
+      }
     }
-    
+
     //console.log(this.state);
   }
   validateForm() {
@@ -100,13 +110,11 @@ class Assesment1 extends Component {
     }
 
     if (typeof fields["employeeID"] !== "undefined") {
-      if (!fields["employeeID"].match(/^[a-zA-Z ]*$/)) {
+      if (!fields["employeeID"].match(/^[0-9a-zA-Z ]*$/)) {
         formIsValid = false;
         errors["employeeID"] = "*Please enter valid employeeID.";
       }
     }
-
-    
 
     if (!fields["role"]) {
       formIsValid = false;
@@ -131,7 +139,7 @@ class Assesment1 extends Component {
     }
     return formIsValid;
   }
-  validateSignUpForm(){
+  validateSignUpForm() {
     let fields = this.state.fields;
     let errors = {};
     let formIsValid = true;
@@ -174,7 +182,7 @@ class Assesment1 extends Component {
     }
 
     if (typeof fields["employeeID"] !== "undefined") {
-      if (!fields["employeeID"].match(/^[a-zA-Z ]*$/)) {
+      if (!fields["employeeID"].match(/^[0-9a-zA-Z ]*$/)) {
         formIsValid = false;
         errors["employeeID"] = "*Please enter valid employeeID.";
       }
@@ -220,6 +228,24 @@ class Assesment1 extends Component {
         errors["zip"] = "*Please enter valid 6 digit zip code";
       }
     }
+
+    if (formIsValid) {
+      errors["password"] = "";
+      errors["username"] = "";
+      this.setState({
+        ...this.state,
+        formInvalid: false,
+        errors: errors,
+      });
+    }
+    //console.log( errors)
+    else {
+      this.setState({
+        ...this.state,
+        errors: errors,
+      });
+    }
+    return formIsValid;
   }
 
   handleFormChange(e) {
@@ -239,7 +265,6 @@ class Assesment1 extends Component {
       });
     }
   }
-  
 
   render() {
     console.log(this.state);
@@ -275,27 +300,27 @@ class Assesment1 extends Component {
             </div>
             <div className="column">
               <form
-                // method="post"
-                // name="userRegistrationForm"
-                // onSubmit={this.handelSubmit}
+              // method="post"
+              // name="userRegistrationForm"
+              // onSubmit={this.handelSubmit}
               >
                 <div className="AreYouNew">
                   <h3>Are you new to Care.com?</h3>
                   <div className="bottonPrent">
-                    <botton
+                    <button
                       type="button"
-                      className="botton1 ${this.state.currentForm ==='form1' && 'active'}"
+                      className="button1 active"
                       onClick={() => this.handleFormChange()}
                     >
                       Yes
-                    </botton>
-                    <botton
+                    </button>
+                    <button
                       type="button"
-                      className="botton1"
+                      className="button1 active"
                       onClick={() => this.handleFormChange()}
                     >
                       No
-                    </botton>
+                    </button>
                   </div>
 
                   <>
