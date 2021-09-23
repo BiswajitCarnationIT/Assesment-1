@@ -1,6 +1,6 @@
 .BackGround {
   background-image: url(bg-image.jpg);
-  height: 1000px;
+  height: 1150px;
   width: 100%;
   background-size: cover;
 }
@@ -115,6 +115,7 @@ input[type="text"] {
   border: 1px solid white;
   margin: 5px 0px;
   border-radius: 3px;
+  color: white;
 }
 
 #role {
@@ -168,6 +169,7 @@ footer {
   margin: 0px;
   background-color: rgb(27, 27, 27);
   text-align: center;
+  z-index: 99999;
 }
 .footerlogo {
   /* margin: 15px; */
@@ -204,8 +206,13 @@ footer {
 select option{
   background-color: rgb(3, 41, 19);
 }
+
+.PrivacyTextParent{
+  
+}
 .PrivacyText{
   width: 90.5%;
+  margin: 0;
 }
 
 .PrivacyText p{
@@ -214,4 +221,8 @@ select option{
 }
 #PrivacyText{
   color: white;
+}
+.PrivacyText2 p{
+  color: rgb(128, 182, 170);
+  margin: 0;
 }

@@ -211,6 +211,10 @@ class Assesment1 extends Component {
         errors["lname"] = "*Please enter valid last name";
       }
     }
+    if (!fields["role"]) {
+      formIsValid = false;
+      errors["role"] = "*Please select your role";
+    }
 
     if (!fields["address"]) {
       formIsValid = false;
@@ -309,14 +313,18 @@ class Assesment1 extends Component {
                   <div className="bottonPrent">
                     <button
                       type="button"
-                      className="button1 active"
+                      className={`button1 ${
+                        this.state.currentForm === "form2" && "active"
+                      }`}
                       onClick={() => this.handleFormChange()}
                     >
                       Yes
                     </button>
                     <button
                       type="button"
-                      className="button1 active"
+                      className={`button1 ${
+                        this.state.currentForm === "form1" && "active"
+                      }`}
                       onClick={() => this.handleFormChange()}
                     >
                       No

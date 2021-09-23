@@ -1,4 +1,5 @@
 import React from "react";
+import MonthPicker from "./MonthPicker";
 import PrivacyText from "./PrivacyText";
 import "./Style.css";
 
@@ -82,7 +83,8 @@ const FormTwo = ({ state, handelChange, handelSubmit }) => {
       <div className="errorMsg">{state.errors.password}</div>
       <div className="dateOfBirth">
         <select name="month" id="month">
-          <option value="month">Birth month</option>
+          <option value="">Birth month</option>
+          <MonthPicker />
         </select>
         <select name="day" id="day">
           <option value="day">Day</option>
@@ -91,7 +93,19 @@ const FormTwo = ({ state, handelChange, handelSubmit }) => {
           <option value="year">Year</option>
         </select>
       </div>
-      <PrivacyText/>
+      <div className="PrivacyText">
+        <p>
+          By chosing "Submit," you agree to our{" "}
+          <p id="PrivacyText">Terms of Use</p> and{" "}
+          <p id="PrivacyText">Privacy Policy</p>
+        </p>
+      </div>
+      <div className="PrivacyText2">
+        <p>
+          By creating an account you are opting to receive emails from </p>
+          <p>Care.com. If you do not wish to receive emails,you may <p id="PrivacyText">opt out</p>
+        </p>
+      </div>
       <button type="button" id="submit" onClick={() => handelSubmit()}>
         Submit
       </button>

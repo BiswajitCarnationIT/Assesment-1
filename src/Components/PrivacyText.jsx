@@ -3,7 +3,7 @@ import "./Style.css";
 
 const PrivacyText = () => {
   return (
-    <>
+    <div className="PrivacyTextParent">
       <div className="PrivacyText">
         <p>
           By chosing "Submit," you agree to our{" "}
@@ -17,7 +17,7 @@ const PrivacyText = () => {
           If you do not wish to receive emails,you may <p id="PrivacyText">opt out</p>
         </p>
       </div> */}
-    </>
+    </div>
   );
 };
 
