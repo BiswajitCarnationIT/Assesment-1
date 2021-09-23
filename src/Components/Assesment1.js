@@ -115,10 +115,45 @@ class Assesment1 extends Component {
         errors["employeeID"] = "*Please enter valid employeeID.";
       }
     }
-
-    if (!fields["role"]) {
+    if (!fields["month"]) {
       formIsValid = false;
-      errors["role"] = "*Please select your role";
+      errors["month"] = " *enter month";
+    } else {
+      if (fields["month"] < 1 || fields["month"] > 12) {
+        formIsValid = false;
+        errors["month"] = " *month:1-12";
+      }
+      if (!fields["day"]) {
+        formIsValid = false;
+        errors["day"] = " *enter day";
+      } else if (fields["month"] === "2") {
+        if (fields["day"] < 1 || fields["day"] > 28) {
+          formIsValid = false;
+          errors["day"] = " * day:1-28";
+        }
+      } else if (
+        fields["month"] === "4" ||
+        fields["month"] === "6" ||
+        fields["month"] === "9" ||
+        fields["month"] === "11"
+      ) {
+        if (fields["day"] < 1 || fields["day"] > 30) {
+          formIsValid = false;
+          errors["day"] = " * day:1-30";
+        } else {
+          formIsValid = false;
+          errors["day"] = " * day:1-31";
+        }
+      }
+    }
+    if (!fields["year"]) {
+      formIsValid = false;
+      errors["year"] = " *enter year.";
+    } else {
+      if (fields["year"] < 1980 || fields["year"] > 2021) {
+        formIsValid = false;
+        errors["year"] = " *enter valid year.";
+      }
     }
 
     if (formIsValid) {
@@ -230,6 +265,47 @@ class Assesment1 extends Component {
       if (!fields["zip"].match(/^[1-9]{1}[0-9]{5}$/)) {
         formIsValid = false;
         errors["zip"] = "*Please enter valid 6 digit zip code";
+      }
+    }
+
+    if (!fields["month"]) {
+      formIsValid = false;
+      errors["month"] = " *enter month";
+    } else {
+      if (fields["month"] < 1 || fields["month"] > 12) {
+        formIsValid = false;
+        errors["month"] = " *month:1-12";
+      }
+      if (!fields["day"]) {
+        formIsValid = false;
+        errors["day"] = " *enter day";
+      } else if (fields["month"] === "2") {
+        if (fields["day"] < 1 || fields["day"] > 28) {
+          formIsValid = false;
+          errors["day"] = " * day:1-28";
+        }
+      } else if (
+        fields["month"] === "4" ||
+        fields["month"] === "6" ||
+        fields["month"] === "9" ||
+        fields["month"] === "11"
+      ) {
+        if (fields["day"] < 1 || fields["day"] > 30) {
+          formIsValid = false;
+          errors["day"] = " * day:1-30";
+        } else {
+          formIsValid = false;
+          errors["day"] = " * day:1-31";
+        }
+      }
+    }
+    if (!fields["year"]) {
+      formIsValid = false;
+      errors["year"] = " *enter year.";
+    } else {
+      if (fields["year"] < 1980 || fields["year"] > 2021) {
+        formIsValid = false;
+        errors["year"] = " *enter valid year.";
       }
     }
 

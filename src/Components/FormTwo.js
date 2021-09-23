@@ -82,10 +82,16 @@ const FormTwo = ({ state, handelChange, handelSubmit }) => {
       ></input>
       <div className="errorMsg">{state.errors.password}</div>
       <div className="dateOfBirth">
-        <select name="month" id="month">
-          <option value="">Birth month</option>
-          <MonthPicker />
-        </select>
+      <input
+          type="number"
+          id="month"
+          name="month"
+          placeholder="Month"
+          min="1"
+          max="12"
+          value={state.fields.month}
+          onChange={handelChange}
+        />
         <input
           type="number"
           id="day"
@@ -106,6 +112,11 @@ const FormTwo = ({ state, handelChange, handelSubmit }) => {
           value={state.fields.year}
           onChange={handelChange}
         />
+      </div>
+      <div className="errorMsg"> 
+        {state.errors.day}
+        {state.errors.month}
+        {state.errors.year}
       </div>
       <div className="PrivacyText">
         <p>

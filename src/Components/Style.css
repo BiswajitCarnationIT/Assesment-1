@@ -103,9 +103,11 @@
   background-color: rgb(9, 80, 80);
   border: 1px solid white;
   border-radius: 3px;
+  color: white;
 }
 .active {
   background-color: white;
+  color: black;
 }
 
 input[type="text"] {
