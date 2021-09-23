@@ -52,20 +52,32 @@ const FormOne = ({ state, handelChange, handelSubmit }) => {
 
           <MonthPicker />
         </select>
-        <select name="day" id="day">
-          <option value="day">Day</option>
-          <option value="1">1</option>
-        </select>
-        <select name="year" id="year">
-          <option value="year">Year</option>
-          <option value="1990">1990</option>
-        </select>
+        <input
+          type="number"
+          id="day"
+          name="day"
+          placeholder="Day"
+          min="1"
+          max="32"
+          value={state.fields.day}
+          onChange={handelChange}
+        />
+        <input
+          type="number"
+          id="year"
+          name="year"
+          placeholder="Year"
+          min="1970"
+          max="2021"
+          value={state.fields.year}
+          onChange={handelChange}
+        />
       </div>
 
       {/* <button type="button" id="submit" onClick={() => handelSubmit()}>
         Submit
       </button> */}
-      
+
       <div className="PrivacyText">
         <p>
           By chosing "Submit," you agree to our{" "}
@@ -74,9 +86,10 @@ const FormOne = ({ state, handelChange, handelSubmit }) => {
         </p>
       </div>
       <div className="PrivacyText2">
+        <p>By creating an account you are opting to receive emails from </p>
         <p>
-          By creating an account you are opting to receive emails from </p>
-          <p>Care.com. If you do not wish to receive emails,you may <p id="PrivacyText">opt out</p>
+          Care.com. If you do not wish to receive emails,you may{" "}
+          <p id="PrivacyText">opt out</p>
         </p>
       </div>
       <button type="button" id="submit" onClick={() => handelSubmit()}>

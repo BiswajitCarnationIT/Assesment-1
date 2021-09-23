@@ -148,11 +148,13 @@ input[type="text"] {
   width: 44%;
 }
 #day {
-  width: 21%;
+  width: 20%;
+  height: 39px;
   margin: 0 7px;
 }
 #year {
-  width: 22%;
+  width: 21%;
+  height: 39px;
 }
 
 #submit {
