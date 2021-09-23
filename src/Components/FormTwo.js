@@ -1,23 +1,75 @@
 import React from "react";
-
 import "./Style.css";
 
-const FormOne = ({ state, handelChange, handelSubmit }) => {
+const FormTwo = ({ state, handelChange, handelSubmit }) => {
   return (
     <div>
-      <h3>Ente your existing Care.com login information</h3>
+      <h3>Complete These fields to activate your benefit</h3>
+      <input
+        type="text"
+        id="employeeID"
+        name="employeeID"
+        placeholder="Employee ID"
+        value={state.employeeID}
+        onChange={handelChange}
+      ></input>
+      <div className="errorMsg">{state.errors.employeeID}</div>
+
+      <input
+        type="text"
+        id="fname"
+        name="fname"
+        placeholder="First name"
+        value={state.fname}
+        onChange={handelChange}
+      ></input>
+      <div className="errorMsg">{state.errors.fname}</div>
+
+      <input
+        type="text"
+        id="lname"
+        name="lname"
+        placeholder="Last Name"
+        value={state.lname}
+        onChange={handelChange}
+      ></input>
+      <div className="errorMsg">{state.errors.lname}</div>
+
+      <select name="role" id="role" value={state.role} onChange={handelChange}>
+        <option value="ReactJS">ReactJS</option>
+        <option value="NodeJS">NodeJS</option>
+        <option value="AWS">AWS</option>
+      </select>
+      <div className="errorMsg">{state.errors.role}</div>
+      <input
+        type="text"
+        id="address"
+        name="address"
+        placeholder="Address"
+        value={state.lname}
+        onChange={handelChange}
+      ></input>
+      <div className="errorMsg">{state.errors.address}</div>
+      <input
+        type="text"
+        id="zip"
+        name="zip"
+        placeholder="Zip"
+        value={state.zip}
+        onChange={handelChange}
+      ></input>
+      <div className="errorMsg">{state.errors.zip}</div>
 
       <input
         type="text"
         id="emailid"
         name="emailid"
         placeholder="Email"
-        value={state.fields.emailid}
+        value={state.emailid}
         onChange={handelChange}
       ></input>
       <br></br>
       <div className="errorMsg">{state.errors.emailid}</div>
-
       <input
         type="text"
         id="password"
@@ -27,24 +79,6 @@ const FormOne = ({ state, handelChange, handelSubmit }) => {
         onChange={handelChange}
       ></input>
       <div className="errorMsg">{state.errors.password}</div>
-
-      <h3>Complete These fields to activate your benefit</h3>
-      <input
-        type="text"
-        id="employeeID"
-        name="employeeID"
-        placeholder="Employee ID"
-        value={state.fields.employeeID}
-        onChange={handelChange}
-      ></input>
-      <div className="errorMsg">{state.errors.employeeID}</div>
-
-      <select name="role" id="role" value={state.role} onChange={handelChange}>
-        <option value="ReactJS">ReactJS</option>
-        <option value="NodeJS">NodeJS</option>
-        <option value="AWS">AWS</option>
-      </select>
-      <div className="errorMsg">{state.errors.role}</div>
       <div className="dateOfBirth">
         <input
           type="number"
@@ -82,11 +116,6 @@ const FormOne = ({ state, handelChange, handelSubmit }) => {
         {state.errors.month}
         {state.errors.year}
       </div>
-
-      {/* <button type="button" id="submit" onClick={() => handelSubmit()}>
-        Submit
-      </button> */}
-
       <div className="PrivacyText">
         <p>
           By chosing "Submit," you agree to our{" "}
@@ -108,4 +137,4 @@ const FormOne = ({ state, handelChange, handelSubmit }) => {
   );
 };
 
-export default FormOne;
+export default FormTwo;

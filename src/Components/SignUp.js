@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import "./Style2.css";
+import "./Style.css";
 import logo from "./logo.png";
 
 class SignUp extends Component {
