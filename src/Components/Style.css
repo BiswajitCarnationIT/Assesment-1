@@ -1,6 +1,6 @@
 .BackGround {
   background-image: url(bg-image.jpg);
-  height: 1150px;
+  height: 1155px;
   width: 100%;
   background-size: cover;
 }
@@ -155,7 +155,7 @@ input[type="text"] {
   margin: 0 7px;
 }
 #year {
-  width: 21%;
+  width: 20%;
   height: 39px;
 }
 

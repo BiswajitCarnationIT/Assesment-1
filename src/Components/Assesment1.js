@@ -15,6 +15,7 @@ class Assesment1 extends Component {
       errors: {},
       formInvalid: true,
       currentForm: "form1",
+      isMonthNotEntered: true
     };
     this.handelChange = this.handelChange.bind(this);
     this.handleFormChange = this.handleFormChange.bind(this);
@@ -115,6 +116,10 @@ class Assesment1 extends Component {
         errors["employeeID"] = "*Please enter valid employeeID.";
       }
     }
+    if (!fields["role"]) {
+      formIsValid = false;
+      errors["role"] = "*Please select your role";
+    }
     if (!fields["month"]) {
       formIsValid = false;
       errors["month"] = " *enter month";
@@ -123,6 +128,8 @@ class Assesment1 extends Component {
         formIsValid = false;
         errors["month"] = " *month:1-12";
       }
+      
+      
       if (!fields["day"]) {
         formIsValid = false;
         errors["day"] = " *enter day";
@@ -145,6 +152,7 @@ class Assesment1 extends Component {
           errors["day"] = " * day:1-31";
         }
       }
+
     }
     if (!fields["year"]) {
       formIsValid = false;
@@ -155,6 +163,7 @@ class Assesment1 extends Component {
         errors["year"] = " *enter valid year.";
       }
     }
+
 
     if (formIsValid) {
       errors["password"] = "";
@@ -276,6 +285,7 @@ class Assesment1 extends Component {
         formIsValid = false;
         errors["month"] = " *month:1-12";
       }
+      
       if (!fields["day"]) {
         formIsValid = false;
         errors["day"] = " *enter day";
@@ -298,6 +308,7 @@ class Assesment1 extends Component {
           errors["day"] = " * day:1-31";
         }
       }
+     
     }
     if (!fields["year"]) {
       formIsValid = false;
