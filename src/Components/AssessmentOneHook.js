@@ -12,6 +12,8 @@ function AssessmentOneHook() {
   const [currentForm, setCurrentForm] = useState("form1");
 
   console.log(fields);
+  console.log(errors);
+  console.log(currentForm);
 
   const handleFormChange = (e) => {
     if (currentForm === "form1") {
@@ -22,11 +24,117 @@ function AssessmentOneHook() {
   };
 
   const handleSubmit = (e) => {
-      alert("submitted");
+    if (currentForm === "form1") {
+      validateFormOne();
+    }
+    alert("submitted");
   };
 
   const handelChange = (e) => {
     setFields({ ...fields, [e.target.name]: e.target.value });
+  };
+
+  const validateFormOne = () => {
+    let error = { ...errors };
+    let formIsValid = true;
+    if (!fields["emailid"]) {
+      formIsValid = false;
+      error["emailid"] = "*Please enter your email-ID.";
+      setErrors(error);
+    }
+    if (typeof fields["emailid"] !== "undefined") {
+      var pattern = new RegExp(
+        /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
+      );
+      if (!pattern.test(fields["emailid"])) {
+        formIsValid = false;
+        error["emailid"] = "*Please enter valid email-ID.";
+        setErrors(error);
+      }
+    }
+    if (!fields["password"]) {
+      formIsValid = false;
+      error["password"] = "*Please enter your password.";
+      setErrors(error);
+    }
+    if (typeof fields["password"] !== "undefined") {
+      if (
+        !fields["password"].match(
+          /^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).*$/
+        )
+      ) {
+        formIsValid = false;
+        error["password"] = "*Please enter secure and strong password.";
+        setErrors(error);
+      }
+    }
+    if (!fields["employeeID"]) {
+      formIsValid = false;
+      error["employeeID"] = "*Please enter your employeeID.";
+      setErrors(error);
+    }
+
+    if (typeof fields["employeeID"] !== "undefined") {
+      if (!fields["employeeID"].match(/^[0-9a-zA-Z ]*$/)) {
+        formIsValid = false;
+        error["employeeID"] = "*Please enter valid employeeID.";
+        setErrors(error);
+      }
+    }
+    if (!fields["role"]) {
+      formIsValid = false;
+      error["role"] = "*Please select your role";
+      setErrors(error);
+    }
+    if (!fields["month"]) {
+      formIsValid = false;
+      error["month"] = " *enter month";
+      setErrors(error);
+    } else {
+      if (fields["month"] < 1 || fields["month"] > 12) {
+        formIsValid = false;
+        error["month"] = " *month:1-12";
+        setErrors(error);
+      }
+
+      if (!fields["day"]) {
+        formIsValid = false;
+        error["day"] = " *enter day";
+        setErrors(error);
+      } else if (fields["month"] === "2") {
+        if (fields["day"] < 1 || fields["day"] > 28) {
+          formIsValid = false;
+          error["day"] = " * day:1-28";
+          setErrors(error);
+        }
+      } else if (
+        fields["month"] === "4" ||
+        fields["month"] === "6" ||
+        fields["month"] === "9" ||
+        fields["month"] === "11"
+      ) {
+        if (fields["day"] < 1 || fields["day"] > 30) {
+          formIsValid = false;
+          error["day"] = " * day:1-30";
+          setErrors(error);
+        } else {
+          formIsValid = false;
+          error["day"] = " * day:1-31";
+          setErrors(error);
+        }
+      }
+    }
+    if (!fields["year"]) {
+      formIsValid = false;
+      error["year"] = " *enter year.";
+      setErrors(error);
+    } else {
+      if (fields["year"] < 1980 || fields["year"] > 2021) {
+        formIsValid = false;
+        error["year"] = " *enter valid year.";
+        setErrors(error);
+      }
+    }
   };
 
   return (
@@ -84,7 +192,7 @@ function AssessmentOneHook() {
                   {currentForm === "form1" && (
                     <FormOne
                       fields={fields}
-                      errors = {errors}
+                      errors={errors}
                       handelChange={handelChange}
                       handleSubmit={handleSubmit}
                     />
@@ -93,7 +201,7 @@ function AssessmentOneHook() {
                   {currentForm === "form2" && (
                     <FormTwo
                       fields={fields}
-                      errors = {errors}
+                      errors={errors}
                       handelChange={handelChange}
                       handleSubmit={handleSubmit}
                     />
