@@ -1,19 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "./Style.css";
 import logo from "./logo.png";
 import footerLogo from "./footer_logo.png";
 import FormOne from "./FormOneHook";
 import FormTwo from "./FormTwoHook";
+import axiosn from "axios";
 
 function AssessmentOneHook() {
   const [fields, setFields] = useState({});
   const [errors, setErrors] = useState({});
   const [currentForm, setCurrentForm] = useState("form1");
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  useEffect(() => {
+    if (isFormValid === true)
+      document.title = `Loggedin with ${fields.emailid}`;
+    else {
+      document.title = `Please Login`;
+    }
+  }, [isFormValid]);
 
   console.log(fields);
   console.log(errors);
   console.log(currentForm);
+  console.log(isFormValid);
 
   const handleFormChange = (e) => {
     if (currentForm === "form1") {
@@ -25,9 +36,12 @@ function AssessmentOneHook() {
 
   const handleSubmit = (e) => {
     if (currentForm === "form1") {
-      validateFormOne();
+      let isFormValid = validateFormOne();
+      setIsFormValid(isFormValid);
+      if (isFormValid) {
+        alert("submitted");
+      }
     }
-    alert("submitted");
   };
 
   const handelChange = (e) => {
@@ -135,6 +149,7 @@ function AssessmentOneHook() {
         setErrors(error);
       }
     }
+    return formIsValid;
   };
 
   return (
